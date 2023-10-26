@@ -1,3 +1,5 @@
+import Control.Monad (when)
+
 main = do
     n1 <- promptNumber "Enter first number:"
     operator <- promptOperator "Enter operator:"
@@ -11,7 +13,7 @@ main = do
         
     putStrLn "Do another calculation? (y/n)"
     cont <- getLine
-    if cont == "y" then main else return ()
+    when (cont == "y") main
 
 -- | Calculates the result based on the given operator and operands.
 -- Returns 'Nothing' if the operation is invalid (e.g., division by zero).
